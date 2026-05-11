@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Apple Box - 합이 10</title>
+    <link rel="stylesheet" href="./styles/app.css" />
+  </head>
+  <body>
+    <div class="app" data-app>
+      <header class="hud" aria-label="게임 정보">
+        <div class="hud__left">
+          <div class="pill" aria-label="남은 시간">
+            <span class="pill__label">TIME</span>
+            <span class="pill__value pill__mono" data-timer>01:00</span>
+          </div>
+        </div>
+
+        <div class="hud__center" aria-label="게임 이름">
+          <h1 class="gameTitle">
+            <span class="gameTitle__w1">Apple</span><span class="gameTitle__w2">Box</span>
+          </h1>
+        </div>
+
+        <div class="hud__right">
+          <div class="pill" aria-label="점수(없어진 숫자 합)">
+            <span class="pill__label">SCORE</span>
+            <span class="pill__value" data-score>0</span>
+          </div>
+          <button class="iconBtn" type="button" data-mute aria-label="사운드 끄기">
+            <span aria-hidden="true">🔈</span>
+          </button>
+          <button class="iconBtn" type="button" data-pause aria-label="일시정지">
+            <span aria-hidden="true">Ⅱ</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="stage" aria-label="게임 화면">
+        <canvas class="stage__canvas" data-canvas></canvas>
+        <div class="stage__hint" data-hint>
+          드래그로 사각형을 그리면 포함된 사과가 선택됩니다. 합이 10일 때만 터지며 사과가 사라지고 사라진 숫자가 점수에 더해집니다. 60초 동안 많이 없애 보세요.
+        </div>
+      </main>
+
+      <div class="overlay" data-overlay hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-label="일시정지">
+          <h2 class="modal__title">일시정지</h2>
+          <p class="modal__desc">계속하려면 아래 버튼을 누르세요.</p>
+          <div class="modal__actions">
+            <button class="btn" type="button" data-resume>계속하기</button>
+            <button class="btn btn--ghost" type="button" data-restart>다시 시작</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay" data-result hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-label="게임 종료">
+          <h2 class="modal__title">시간 종료</h2>
+          <p class="modal__desc">없어진 사과 숫자의 합(점수): <strong data-final-score>0</strong></p>
+          <div class="modal__actions modal__actions--single">
+            <button class="btn" type="button" data-play-again>다시 하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script defer src="./game.bundle.js"></script>
+  </body>
+</html>
