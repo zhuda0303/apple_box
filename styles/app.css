@@ -133,6 +133,15 @@ body {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
+.gameTitle__sub {
+  margin-left: 0.2em;
+  font-size: 0.42em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted2);
+  text-shadow: none;
+}
+
 .iconBtn {
   width: 42px;
   height: 42px;
